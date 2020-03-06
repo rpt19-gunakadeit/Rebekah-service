@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Project Name
 
 > Nike
@@ -37,3 +38,6 @@ npm install -g webpack
 npm install
 ```
 
+=======
+# Rebekah-service
+>>>>>>> b5aa32d54b30044b4b8e6d52b560a7793df54b33

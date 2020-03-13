@@ -18,9 +18,9 @@ var Review = ReviewModel(db, Sequelize);
 User.hasMany(Review);
 Review.belongsTo(User);
 
-// db.sync({ force: false })
+// db.sync({ force: true })
 //   .then(() => {
-//     console.log('Connection to nike_reviews database established')
+//     console.log('DB sync completed')
 //   })
 //   .catch((error) => console.log('Error in establishing nike_reviews database: ', error))
 

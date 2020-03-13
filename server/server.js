@@ -4,6 +4,6 @@ const db = require('../database/database.js')
 const port = 2000;
 const app = express();
 
-app.use(express.static('./client/dist'));
+app.use(express.static('./public/dist'));
 
 app.listen(port, () => console.log(`Reviews service is listening on port ${port}`));

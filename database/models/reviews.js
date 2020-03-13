@@ -8,7 +8,7 @@ module.exports = (db, type) => {
       type: type.STRING,
     },
     body: {
-      type: type.STRING,
+      type: type.STRING(2000),
     },
     stars: {
       type: type.INTEGER,

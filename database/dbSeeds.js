@@ -23,7 +23,6 @@ var generateBody = () => {
   })
 }
 
-
 // SEED THE USERS DB
 for (let i = 0; i < 1000; i++) {
   db.User.create({
@@ -66,7 +65,7 @@ for (let i = 1; i <= 100; i++) {
       title: generateTitle(),
       body: reviewBody,
       stars: Math.floor(Math.random() * 5) + 1, // stars from 1-5
-      date: '' + faker.date.past(),
+      date: faker.date.past(),
       size_rating: sizeScore, // rating from 1-3
       comfort_rating: comfortScore, // rating from 1-3
       durability_rating: durabilityScore, // rating from 1-3

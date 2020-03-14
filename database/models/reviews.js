@@ -15,7 +15,7 @@ module.exports = (db, type) => {
       allowNull: false
     },
     date: {
-      type: type.STRING,
+      type: type.DATE,
     },
     size_rating: {
       type: type.INTEGER,

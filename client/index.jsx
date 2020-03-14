@@ -21,19 +21,19 @@ class App extends React.Component {
         })
       },
       error: (error) => {
-        console.log(error)
+        console.log(error);
       }
     })
   }
 
   componentDidMount() {
-    this.getReviews()
+    this.getReviews();
   }
 
   render() {
     return (
       <div>
-        <h1>Hello test test </h1>
+        <h1> Hello test test </h1>
       </div>
     )
   }

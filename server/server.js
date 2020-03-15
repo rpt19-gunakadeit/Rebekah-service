@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.static('./public/dist'));
 
-app.get('/:id', (req, res) => {
+app.get('/reviews/:id', (req, res) => {
   if (req.params.id !== 'favicon.ico') {
     reviews.getReviews(req.params.id)
       .then((reviews) => res.status(200).send(reviews))

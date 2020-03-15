@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom'
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       reviews: [],
       avgStars: null
-    }
+    };
   }
 
   getReviews() {
@@ -33,7 +33,19 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1> Hello test test </h1>
+        <button>
+          <h3>Reviews ({this.state.reviews.length})</h3>
+          <span>
+            <span className="fa fa-star checked"></span>
+            <span className="fa fa-star checked"></span>
+            <span className="fa fa-star checked"></span>
+            <span className="fa fa-star"></span>
+            <span className="fa fa-star"></span>
+          </span>
+          <span>
+
+          </span>
+        </button>
       </div>
     )
   }

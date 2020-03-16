@@ -10,7 +10,10 @@ app.get('/reviews/:id', (req, res) => {
   if (req.params.id !== 'favicon.ico') {
     reviews.getReviews(req.params.id)
       .then((reviews) => res.status(200).send(reviews))
-      .catch((error) => res.status(500).send('Error in getting reviews from DB'))
+      .catch((error) => {
+        //res.body = error ? error: 'Error in getting reviews from DB';
+        res.status(500).send(error)
+      })
   }
 })
 

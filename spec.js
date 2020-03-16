@@ -52,6 +52,18 @@ describe('GET requests for reviews by product ID', () => {
       .expect(500)
       .then(() => done())
   });
+  it('responds with a res.body of "Product does not exist" to a reviews GET request with an id = 200 (not in the range of 1-100)', (done) => {
+    request(app)
+      .get('/reviews/200')
+      .expect(500, 'Product does not exist')
+      .then(() => done())
+  });
+  it('responds with a res.body of "Product does not exist" to a reviews GET request with an id = "awesomeShoes" (not a Number)', (done) => {
+    request(app)
+      .get('/reviews/200')
+      .expect(500, 'Product does not exist')
+      .then(() => done())
+  });
   it('responds with 500 to a reviews GET request with an id = 0 (not in the range of 1-100)', (done) => {
     request(app)
       .get('/reviews/0')
@@ -66,7 +78,7 @@ describe('GET requests for reviews by product ID', () => {
   });
 });
 
-describe('GET request for reviews response', () => {
+describe('Response to GET request for reviews', () => {
   it('responds with json from the db', (done) => {
     let id = Math.floor(Math.random() * 100) + 1;
     request(app)

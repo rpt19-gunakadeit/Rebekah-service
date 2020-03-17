@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
+import Stars from './components/stars.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -32,20 +33,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <button>
-          <h3>Reviews ({this.state.reviews.length})</h3>
-          <span>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star"></span>
-            <span className="fa fa-star"></span>
-          </span>
+      <div id="reviews-header">
+          <span>Reviews ({this.state.reviews.length})</span>
+          <Stars />
           <span>
 
           </span>
-        </button>
       </div>
     )
   }

@@ -7,7 +7,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       reviews: [],
-      avgStars: null
+      avgStars: null,
+      threeReviews: false,
     };
   }
 
@@ -31,14 +32,24 @@ class App extends React.Component {
     this.getReviews();
   }
 
-  render() {
-    return (
-      <div id="reviews-header">
-          <span>Reviews ({this.state.reviews.length})</span>
-          <Stars />
-          <span>
+  showThreeReviews() {
+    this.setState({
+      threeReviews: !this.state.threeReviews
+    })
+  }
 
-          </span>
+  render() {
+    var arrow = this.state.threeReviews ? <i className="arrow up"></i>: <i className="arrow down"></i>;
+
+    return (
+      <div id="reviews-header" onClick={() => this.showThreeReviews()}>
+          <span>Reviews ({this.state.reviews.length})</span>
+          <div>
+            <Stars />
+            <span>
+              {arrow}
+            </span>
+          </div>
       </div>
     )
   }

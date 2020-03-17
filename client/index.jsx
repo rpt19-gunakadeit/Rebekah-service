@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Stars from './components/stars.jsx';
+import ShortReviews from './components/shortReviews.jsx';
+import Review from './components/review.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -39,17 +41,27 @@ class App extends React.Component {
   }
 
   render() {
-    var arrow = this.state.threeReviews ? <i className="arrow up"></i>: <i className="arrow down"></i>;
+    var arrow, shortReviews;
+    if (this.state.threeReviews) {
+      arrow = <i className="arrow up"></i>;
+      shortReviews = <ShortReviews numStars={this.state.avgStars} reviews={this.state.reviews}/>;
+    } else {
+      arrow = <i className="arrow down"></i>;
+      shortReviews = null;
+    }
 
     return (
-      <div id="reviews-header" onClick={() => this.showThreeReviews()}>
+      <div>
+        <div id="reviews-header" onClick={() => this.showThreeReviews()}>
           <span>Reviews ({this.state.reviews.length})</span>
           <div>
-            <Stars />
+            <Stars numStars={this.state.avgStars}/>
             <span>
               {arrow}
             </span>
           </div>
+        </div>
+        {shortReviews}
       </div>
     )
   }

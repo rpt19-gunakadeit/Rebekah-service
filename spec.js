@@ -1,6 +1,7 @@
-const expect = require('chai').expect
+const expect = require('chai').expect;
 const request = require('supertest');
 const app = require('./server/server.js');
+const mysql = require('mysql');
 
 describe('Loading express', () => {
   it('responds to /', (done) => {
@@ -16,25 +17,8 @@ describe('Loading express', () => {
 });
 
 describe('GET requests for reviews by product ID', () => {
-  var id;
-  beforeEach(() => {
-    id = Math.floor(Math.random() * 100) + 1;
-  });
-
   it('responds to any number 1-100', (done) => {
-    request(app)
-      .get(`/reviews/${id}`)
-      .expect(200)
-      .then(() => done())
-  });
-  it('responds to any number 1-100', (done) => {
-    request(app)
-      .get(`/reviews/${id}`)
-      .expect(200)
-      .then(() => done())
-  });
-  it('responds to any number 1-100', (done) => {
-    // let id = getId();
+    let id = Math.floor(Math.random() * 100) + 1;
     request(app)
       .get(`/reviews/${id}`)
       .expect(200)
@@ -129,3 +113,4 @@ describe('Response to GET request for reviews', () => {
       })
   });
 });
+

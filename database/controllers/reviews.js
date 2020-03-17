@@ -1,6 +1,7 @@
 const tables = require('../database.js');
 
 var getReviews = (productId) => {
+  console.log('productID: ', productId, '          typeof productid', typeof productId)
   return new Promise((resolve, reject) => {
     if (productId < 1 || productId > 100) {
       let error = 'Product does not exist'

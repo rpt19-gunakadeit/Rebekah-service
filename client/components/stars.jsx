@@ -6,9 +6,9 @@ var Stars = (props) => {
   var stars = Math.round(props.numStars);
   for (let i = 1; i <= 5; i++) {
     if (i <= stars) {
-      rating.push(<span className='star-checked'>★</span>)
+      rating.push(<span className='star-checked' key={i}>★</span>)
     } else {
-      rating.push(<span className='star'>★</span>)
+      rating.push(<span className='star' key={i}>★</span>)
     }
   }
 

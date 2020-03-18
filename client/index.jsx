@@ -44,7 +44,7 @@ class App extends React.Component {
     var arrow, shortReviews;
     if (this.state.threeReviews) {
       arrow = <i className="arrow up"></i>;
-      shortReviews = <ShortReviews numStars={this.state.avgStars} reviews={this.state.reviews}/>;
+      shortReviews = <ShortReviews numStars={this.state.avgStars} reviews={this.state.reviews.slice(0,3)}/>;
     } else {
       arrow = <i className="arrow down"></i>;
       shortReviews = null;

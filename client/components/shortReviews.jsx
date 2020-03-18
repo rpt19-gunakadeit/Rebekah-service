@@ -3,16 +3,16 @@ import Stars from './stars.jsx';
 import Review from './review.jsx';
 
 var ShortReviews = (props) => {
-
+  console.log(props.reviews[0])
   return (
     <div id='short-reviews'>
       <div>
-        <div>
+        <div id='short-reviews-header'>
           <Stars numStars={props.numStars}/>
-          <p>{props.numStars.toFixed(1)} Stars</p>
+          {props.numStars.toFixed(1)} Stars
         </div>
         <div>
-          <p>Write a Review</p>
+          <span className='write-review-link'>Write a Review</span>
         </div>
       </div>
       <div>
@@ -20,8 +20,8 @@ var ShortReviews = (props) => {
           return <Review review={review} key={index}/>
         })}
       </div>
-      <div>
-        <p>More Reviews</p>
+      <div className='more-reviews'>
+        <span className='more-reviews-link'>More Reviews</span>
       </div>
     </div>
   )

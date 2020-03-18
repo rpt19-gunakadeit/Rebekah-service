@@ -21,21 +21,27 @@ class Review extends React.Component {
     var date = moment(review.date).format('MMM DD, YYYY');
     var reviewBody, extra;
 
-    if (review.body.length < 100) {
-      reviewBody = <span>{review.body}</span>;
-    } else if (this.state.extended) {
-      reviewBody = <span>{review.body}</span>;
-      extra = <span className='more-less' onClick={() => this.changeView()}>Less</span>
+    if (review.body) {
+      if (review.body.length < 100) {
+        reviewBody = <span>{review.body}</span>;
+      } else if (this.state.extended) {
+        reviewBody = <span>{review.body}</span>;
+        extra = <span className='more-less' onClick={() => this.changeView()}>Less</span>
+      } else {
+        reviewBody = <span>{review.body.slice(0,100)}...</span>;
+        extra = <span className='more-less' onClick={() => this.changeView()}>More</span>
+      }
     } else {
-      reviewBody = <span>{review.body.slice(0,100)}...</span>;
-      extra = <span className='more-less' onClick={() => this.changeView()}>More</span>
+      reviewBody = null;
     }
 
     return (
       <div id='review-preview'>
         {review.title}
         <div className='review-info'>
-          <Stars numStars={review.stars}/>
+          <span className='stars'>
+            <Stars numStars={review.stars}/>
+          </span>
           <span className='review-user-date'>{review.user} - {date}</span>
         </div>
         {reviewBody}

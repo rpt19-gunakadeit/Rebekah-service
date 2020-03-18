@@ -13,7 +13,7 @@ var Stars = (props) => {
   }
 
   return (
-    <span id='stars'>
+    <span>
       {rating}
     </span>
   )

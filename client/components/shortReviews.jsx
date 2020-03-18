@@ -3,12 +3,14 @@ import Stars from './stars.jsx';
 import Review from './review.jsx';
 
 var ShortReviews = (props) => {
-  console.log(props.reviews[0])
+
   return (
     <div id='short-reviews'>
       <div>
         <div id='short-reviews-header'>
-          <Stars numStars={props.numStars}/>
+          <span className='stars'>
+            <Stars className='stars' numStars={props.numStars}/>
+          </span>
           {props.numStars.toFixed(1)} Stars
         </div>
         <div>
@@ -21,7 +23,7 @@ var ShortReviews = (props) => {
         })}
       </div>
       <div className='more-reviews'>
-        <span className='more-reviews-link'>More Reviews</span>
+        <span className='more-reviews-link' onClick={() => props.showAllReviews()}>More Reviews</span>
       </div>
     </div>
   )

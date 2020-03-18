@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Stars from './components/stars.jsx';
 import ShortReviews from './components/shortReviews.jsx';
 import Review from './components/review.jsx';
+import FullReviews from './components/fullReviews.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class App extends React.Component {
       reviews: [],
       avgStars: null,
       threeReviews: false,
+      fullReviews: false,
     };
   }
 
@@ -40,28 +42,30 @@ class App extends React.Component {
     })
   }
 
+  showAllReviews() {
+    console.log('clicked')
+    this.setState({
+      fullReviews: !this.state.fullReviews
+    })
+  }
+
   render() {
-    var arrow, shortReviews;
-    if (this.state.threeReviews) {
-      arrow = <i className="arrow up"></i>;
-      shortReviews = <ShortReviews numStars={this.state.avgStars} reviews={this.state.reviews.slice(0,3)}/>;
-    } else {
-      arrow = <i className="arrow down"></i>;
-      shortReviews = null;
-    }
 
     return (
       <div>
+        {this.state.fullReviews ? <FullReviews showAllReviews={this.showAllReviews.bind(this)} numStars={this.state.avgStars} reviews={this.state.reviews}/>: null}
         <div id="reviews-header" onClick={() => this.showThreeReviews()}>
           <span>Reviews ({this.state.reviews.length})</span>
           <div>
-            <Stars numStars={this.state.avgStars}/>
+            <span className='stars'>
+              <Stars numStars={this.state.avgStars}/>
+            </span>
             <span>
-              {arrow}
+              {this.state.threeReviews ? <i className="arrow up"></i>: <i className="arrow down"></i>}
             </span>
           </div>
         </div>
-        {shortReviews}
+        {this.state.threeReviews ? <ShortReviews numStars={this.state.avgStars} reviews={this.state.reviews.slice(0,3)} showAllReviews={this.showAllReviews.bind(this)}/>: null}
       </div>
     )
   }

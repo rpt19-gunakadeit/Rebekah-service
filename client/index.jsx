@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Stars from './components/stars.jsx';
-import ShortReviews from './components/shortReviews.jsx';
-import Review from './components/review.jsx';
+import SummaryReviews from './components/summaryReviews.jsx';
+import ShortReview from './components/shortReview.jsx';
 import FullReviews from './components/fullReviews.jsx';
+import LongReview from './components/longReview.jsx';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -43,7 +45,6 @@ class App extends React.Component {
   }
 
   showAllReviews() {
-    console.log('clicked')
     this.setState({
       fullReviews: !this.state.fullReviews
     })
@@ -65,7 +66,7 @@ class App extends React.Component {
             </span>
           </div>
         </div>
-        {this.state.threeReviews ? <ShortReviews numStars={this.state.avgStars} reviews={this.state.reviews.slice(0,3)} showAllReviews={this.showAllReviews.bind(this)}/>: null}
+        {this.state.threeReviews ? <SummaryReviews numStars={this.state.avgStars} reviews={this.state.reviews.slice(0,3)} showAllReviews={this.showAllReviews.bind(this)}/>: null}
       </div>
     )
   }

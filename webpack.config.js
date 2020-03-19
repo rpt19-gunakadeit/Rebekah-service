@@ -6,18 +6,18 @@ module.exports = {
     rules: [
       {
         test: /\.jsx$/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         exclude: [
-          "/node_modules"
+          '/node_modules'
         ],
         options: {
-          presets: ["@babel/preset-react"]
+          presets: ['@babel/preset-react', '@babel/preset-env']
         },
       }
     ]
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, "./public/dist")
+    path: path.resolve(__dirname, './public/dist')
   }
 }

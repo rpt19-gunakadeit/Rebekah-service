@@ -1,8 +1,8 @@
 import React from 'react';
 import Stars from './stars.jsx';
-import Review from './review.jsx';
+import ShortReview from './shortReview.jsx';
 
-var ShortReviews = (props) => {
+var SummaryReviews = (props) => {
 
   return (
     <div id='short-reviews'>
@@ -19,7 +19,7 @@ var ShortReviews = (props) => {
       </div>
       <div>
         {props.reviews.map((review, index) => {
-          return <Review review={review} key={index}/>
+          return <ShortReview review={review} key={index}/>
         })}
       </div>
       <div className='more-reviews'>
@@ -29,4 +29,4 @@ var ShortReviews = (props) => {
   )
 }
 
-export default ShortReviews;
+export default SummaryReviews;

@@ -1,18 +1,15 @@
 import React from 'react';
 import Stars from './stars.jsx';
 import LongReview from './longReview.jsx';
+import FittingRange from './fittingRange.jsx';
 
 class FullReviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: this.props.reviews,
+      reviews: [],
       visible: 10
     }
-  }
-
-  reSort() {
-    console.log('new filter clicked')
   }
 
   loadMore() {
@@ -22,7 +19,48 @@ class FullReviews extends React.Component {
     })
   }
 
+  reSortReviews(filter = 'date') {
+    $.ajax({
+      method: 'GET',
+      url: 'http://localhost:2000/reviews/19/' + filter,
+      success: (data) => {
+        this.setState({
+          reviews: data.reviews,
+          visible: 10
+        })
+      },
+      error: (error) => console.log(error)
+    })
+  }
+
+  componentDidMount() {
+    this.reSortReviews()
+  }
+
   render() {
+    var sizeSum = 0;
+    var sizeCount = 0;
+    var comfortSum = 0;
+    var comfortCount = 0;
+    var durabilitySum = 0;
+    var durabilityCount = 0
+    this.state.reviews.forEach((review) => {
+      if (review.size_rating) {
+        sizeSum += review.size_rating;
+        sizeCount++;
+      }
+      if (review.comfort_rating) {
+        comfortSum += review.comfort_rating;
+        comfortCount++;
+      }
+      if (review.durability_rating) {
+        durabilitySum += review.durability_rating;
+        durabilityCount++;
+      }
+    })
+    var avgSize = sizeSum / sizeCount;
+    var avgComfort = comfortSum / comfortCount;
+    var avgDurability = durabilitySum / durabilityCount;
 
     return (
       <div className='modal'>
@@ -39,17 +77,13 @@ class FullReviews extends React.Component {
               {this.props.reviews.length} REVIEWS
             </div>
           </div>
-          <div className='fit-scales breaker-line'>
-            <span>Size</span>
-            <span>Comfort</span>
-            <span>Durability</span>
-          </div>
+          <FittingRange size={avgSize} comfort={avgComfort} durability={avgDurability}/>
           <div className='breaker-line'>
-            <select defaultValue='new' onChange={() => this.reSort()}>
-              <option value='helpful'>Sort By: Most Helpful</option>
-              <option value='new'>Sort By: Newest</option>
-              <option value='high'>Sort By: Highest to Lowest</option>
-              <option value='low'>Sort By: Lowest to Highest</option>
+            <select defaultValue='date' onChange={(e) => this.reSortReviews(e.target.value)}>
+              <option value='upvotes'>Sort By: Most Helpful</option>
+              <option value='date'>Sort By: Newest</option>
+              <option value='stars'>Sort By: Highest to Lowest</option>
+              <option value='starsLow'>Sort By: Lowest to Highest</option>
             </select>
           </div>
           {this.state.reviews.slice(0, this.state.visible).map((review, index) =>

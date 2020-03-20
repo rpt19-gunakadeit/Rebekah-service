@@ -1,9 +1,10 @@
 import React from 'react';
 
 var FittingRange = (props) => {
-  console.log(props)
+
   return (
     <div className={props.row ? 'fit-scales breaker-line': 'fit-scales-column'}>
+
       {props.size ? (
         <div className="slidecontainer">
           <span className="fit-title">Size</span>
@@ -13,7 +14,8 @@ var FittingRange = (props) => {
             <span>Runs Big</span>
           </div>
         </div>
-      ): null}
+      ): <div className="slidecontainer"></div>}
+
       {props.comfort ? (
         <div className="slidecontainer">
           <span className="fit-title">Comfort</span>
@@ -24,6 +26,7 @@ var FittingRange = (props) => {
           </div>
         </div>
       ): null}
+
       {props.durability ? (
         <div className="slidecontainer">
           <span className="fit-title">Durability</span>
@@ -34,6 +37,7 @@ var FittingRange = (props) => {
           </div>
         </div>
       ): null}
+
     </div>
   )
 }

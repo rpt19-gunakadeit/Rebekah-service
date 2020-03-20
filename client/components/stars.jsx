@@ -17,7 +17,6 @@ var Stars = (props) => {
       {rating}
     </span>
   )
-
 }
 
 export default Stars;

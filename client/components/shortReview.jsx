@@ -19,17 +19,17 @@ class ShortReview extends React.Component {
   render() {
     var review = this.props.review;
     var date = moment(review.date).format('MMM DD, YYYY');
-    var reviewBody, extra;
+    var reviewBody, expand;
 
     if (review.body) {
       if (review.body.length < 100) {
         reviewBody = <span>{review.body}</span>;
       } else if (this.state.extended) {
         reviewBody = <span>{review.body}</span>;
-        extra = <span className='more-less' onClick={() => this.changeView()}>Less</span>
+        expand = <span className='more-less' onClick={() => this.changeView()}>Less</span>
       } else {
         reviewBody = <span>{review.body.slice(0,100)}...</span>;
-        extra = <span className='more-less' onClick={() => this.changeView()}>More</span>
+        expand = <span className='more-less' onClick={() => this.changeView()}>More</span>
       }
     } else {
       reviewBody = null;
@@ -39,14 +39,12 @@ class ShortReview extends React.Component {
       <div id='review-preview'>
         {review.title}
         <div className='review-info'>
-          <span className='stars'>
-            <Stars numStars={review.stars}/>
-          </span>
+          <span className='stars'> <Stars numStars={review.stars}/> </span>
           <span className='review-user-date'>{review.user} - {date}</span>
         </div>
         {reviewBody}
         <div>
-          {extra}
+          {expand}
         </div>
       </div>
 

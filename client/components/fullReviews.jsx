@@ -77,7 +77,7 @@ class FullReviews extends React.Component {
               {this.props.reviews.length} REVIEWS
             </div>
           </div>
-          <FittingRange size={avgSize} comfort={avgComfort} durability={avgDurability}/>
+          <FittingRange size={avgSize} comfort={avgComfort} durability={avgDurability} row={true}/>
           <div className='breaker-line'>
             <select defaultValue='date' onChange={(e) => this.reSortReviews(e.target.value)}>
               <option value='upvotes'>Sort By: Most Helpful</option>

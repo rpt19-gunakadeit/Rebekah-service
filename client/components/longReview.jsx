@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import Stars from './stars.jsx';
+import FittingRange from './fittingRange.jsx';
 
 class LongReview extends React.Component {
   constructor(props) {
@@ -77,28 +78,20 @@ class LongReview extends React.Component {
       <div id='long-review' className='breaker-line'>
         <div className='long-review-stars'>
           <Stars numStars={review.stars} />
-          <span>
-            Size
-          </span>
-          <span>
-            Comfort
-          </span>
-          <span>
-            Durability
-          </span>
+          <FittingRange size={review.size_rating} comfort={review.comfort_rating} durability={review.durability_rating} row={false} />
         </div>
         <div className='long-review-details'>
           <span className='full-review-title'>
             <b>{review.title}</b>
           </span>
           <span className='full-review-body'>
-            {review.body} {!review.purchaser ? ' [This review was collected as part of a promotion.]': null}
+            {review.body} {!review.purchaser ? ' [This review was collected as part of a promotion.]': <span>000</span>}
           </span>
           <span className='full-review-sml-details'>
             {date}  -  {review.user}  -  {review.location}
           </span>
-          {review.purchaser ? <span className='verified full-review-sml-details'>Verified Purchaser</span>: null}
-          {review.use_for !== null ? <span className='full-review-sml-details'>Use for: Everyday wear</span>: null}
+          {review.purchaser ? <span className='verified full-review-sml-details'>Verified Purchaser</span>: <span>000</span>}
+          {review.use_for !== null ? <span className='full-review-sml-details'>Use for: Everyday wear</span>: <span>000</span>}
           <span id='review-rating'>
             <span className={this.state.upvoted ? 'arrow-icon upvoted' : 'arrow-icon arrow-up'} onClick={() => this.upVote()}>&#8679;</span>
             <span className='review-rating-num'>{review.upvotes}</span>

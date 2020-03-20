@@ -6,7 +6,8 @@ class FullReviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: this.props.reviews
+      reviews: this.props.reviews,
+      visible: 10
     }
   }
 
@@ -15,7 +16,10 @@ class FullReviews extends React.Component {
   }
 
   loadMore() {
-    console.log('clicked')
+    let newVisible = this.state.visible += 10;
+    this.setState({
+      visible: newVisible
+    })
   }
 
   render() {
@@ -48,11 +52,11 @@ class FullReviews extends React.Component {
               <option value='low'>Sort By: Lowest to Highest</option>
             </select>
           </div>
-          {this.state.reviews.map((review, index) =>
+          {this.state.reviews.slice(0, this.state.visible).map((review, index) =>
             <LongReview review={review} key={index} />
           )}
           <div className='full-revew-load-more'>
-            <span className='more-reviews-link' onClick={() => this.loadMore()}>Load More</span>
+            {this.state.visible < this.state.reviews.length ? <span className='more-reviews-link' onClick={() => this.loadMore()}>Load More</span>: null}
           </div>
         </div>
       </div>

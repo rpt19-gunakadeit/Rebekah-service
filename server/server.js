@@ -1,15 +1,27 @@
 const express = require('express');
 const db = require('../database/database.js')
-const reviews = require('../database/controllers/reviews.js');
+const Reviews = require('../database/controllers/reviews.js');
 const port = 2000;
 const app = express();
 
 app.use(express.static('./public/dist'));
 
 app.get('/reviews/:id', (req, res) => {
-  reviews.getReviews(req.params.id)
+  Reviews.getReviews(req.params.id)
     .then((reviews) => res.status(200).send(reviews))
     .catch((error) => res.status(500).send('Error in getting reviews from DB', error))
+})
+
+app.post('/updateVote/:reviewId/:numVotes/:vote', (req, res) => {
+  Reviews.updateVote(req.params.reviewId, req.params.numVotes, req.params.vote)
+    .then(() => res.status(200).send('OK'))
+    .catch((error) => res.status(500).send(`Error in updating ${req.params.vote}-vote`))
+})
+
+app.post('/flagReview/:reviewId/:flag', (req, res) => {
+  Reviews.updateFlag(req.params.reviewId, req.params.flag)
+    .then(() => res.status(200).send('OK'))
+    .catch((error) => res.status(500).send('Error in updating flag'))
 })
 
 app.listen(port, () => console.log(`Reviews service is listening on port ${port}`));

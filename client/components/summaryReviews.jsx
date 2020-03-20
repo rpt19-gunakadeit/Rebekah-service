@@ -5,7 +5,7 @@ import ShortReview from './shortReview.jsx';
 var SummaryReviews = (props) => {
 
   return (
-    <div id='short-reviews'>
+    <div id='short-reviews' className='fade-in'>
       <div>
         <div id='short-reviews-header'>
           <span className='stars'>

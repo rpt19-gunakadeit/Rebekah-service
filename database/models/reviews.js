@@ -28,6 +28,21 @@ module.exports = (db, type) => {
     },
     location: {
       type: type.STRING,
+    },
+    use_for: {
+      type: type.STRING,
+    },
+    purchaser: {
+      type: type.BOOLEAN,
+    },
+    upvotes: {
+      type: type.INTEGER,
+    },
+    downvotes: {
+      type: type.INTEGER,
+    },
+    flagged: {
+      type: type.BOOLEAN,
     }
   }, {
     timestamps: false

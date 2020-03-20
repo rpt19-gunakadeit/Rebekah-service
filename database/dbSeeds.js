@@ -34,7 +34,7 @@ for (let i = 0; i < 1000; i++) {
 for (let i = 1; i <= 100; i++) {
   // each product should have a random number of reviews- 0 to 25 reviews
   let numReviews = Math.floor(Math.random() * 50);
-  let sizeScore, comfortScore, durabilityScore, reviewBody;
+  let sizeScore, comfortScore, durabilityScore, reviewBody, purchaser, usage, upvotes, downvotes;
 
   for (let x = 1; x <= numReviews; x++) {
     // make the fitting ratings null every 3 reviews & durability null every other review
@@ -42,21 +42,40 @@ for (let i = 1; i <= 100; i++) {
       sizeScore = null;
       comfortScore = null;
       durabilityScore = null;
+      usage = 'Everyday wear';
     } else if (x % 2 === 0) {
       sizeScore = Math.floor(Math.random() * 3);
       comfortScore = Math.floor(Math.random() * 3);
       durabilityScore = null;
+    } else if (x % 5 === 0) {
     } else {
       sizeScore = Math.floor(Math.random() * 3) + 1;
       comfortScore = Math.floor(Math.random() * 3) + 1;
       durabilityScore = Math.floor(Math.random() * 3) + 1;
+      usage = null;
     }
 
     // make the review body empty every 5 reviews
     if (x % 5 === 0) {
       reviewBody = null;
     } else {
-      reviewBody = generateBody()
+      reviewBody = generateBody();
+    }
+
+    if (x % 5 === 0) {
+      purchaser = false;
+    } else if (x % 3 === 0) {
+      purchaser = true;
+    } else {
+      purchaser = null;
+    }
+
+    if (x % 4 === 0) {
+      upvotes = Math.floor(Math.random() * 20);
+      downvotes = Math.floor(Math.random() * 20);
+    } else {
+      upvotes = 0;
+      downvotes = 0;
     }
 
     // insert the reviews into the table
@@ -71,6 +90,12 @@ for (let i = 1; i <= 100; i++) {
       durability_rating: durabilityScore, // rating from 1-3
       location: faker.address.city() + ', ' + faker.address.state(),
       userId: Math.floor(Math.random() * 1000) + 1,
+      use_for: usage,
+      purchaser: purchaser,
+      upvotes: upvotes,
+      downvotes: downvotes,
+      flagged: false,
     })
   }
 }
+

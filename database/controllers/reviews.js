@@ -20,6 +20,38 @@ var getReviews = (productId) => {
   })
 }
 
+var updateVote = (reviewId, numVotes, vote) => {
+  return new Promise((resolve, reject) => {
+    tables.Review.findOne({ where: {id: reviewId}})
+      .then((record) => {
+        if (vote === 'up') {
+          record.update({upvotes: numVotes})
+          .then(() => resolve())
+          .catch((error) => reject(error))
+        } else {
+          record.update({downvotes: numVotes})
+          .then(() => resolve())
+          .catch((error) => reject(error))
+        }
+      })
+      .catch((error) => reject(error))
+  })
+}
+
+var updateFlag = (reviewId, flag) => {
+  return new Promise((resolve, reject) => {
+    tables.Review.findOne({ where: {id: reviewId}})
+      .then((record) => {
+        record.update({flagged: flag})
+        .then(() => resolve())
+        .catch((error) => reject(error))
+      })
+      .catch((error) => reject(error))
+  })
+}
+
 module.exports = {
-  getReviews
+  getReviews,
+  updateVote,
+  updateFlag
 }

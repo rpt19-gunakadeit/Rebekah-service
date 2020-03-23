@@ -22,6 +22,7 @@ class App extends React.Component {
     $.ajax({
       method: 'GET',
       url: 'http://localhost:2000/reviews/19/date',
+
       success: (data) => {
         this.setState({
           reviews: data.reviews,

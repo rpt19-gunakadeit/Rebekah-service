@@ -32,7 +32,7 @@ for (let i = 0; i < 1000; i++) {
 
 // // SEED THE REVIEWS DB
 for (let i = 1; i <= 100; i++) {
-  // each product should have a random number of reviews- 0 to 25 reviews
+  // each product should have a random number of reviews- 0 to 50 reviews
   let numReviews = Math.floor(Math.random() * 50);
   let sizeScore, comfortScore, durabilityScore, reviewBody, purchaser, usage, upvotes, downvotes;
 

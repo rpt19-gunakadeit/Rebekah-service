@@ -1,21 +1,50 @@
-const puppeteer = require('puppeteer');
-var url = 'https://www.nike.com/t/air-max-90-mens-shoe-6n3vKB/CN8490-002';
-(async () => {
-    const browser = await puppeteer.launch({headless: false, slowMo: 100});
-    const page = await browser.newPage();
-    await page.setViewport({width: 1920, height: 926});
-    await page.goto(url);
-    await page.waitFor('input[name=search]');
-    await page.type('input[name=search]', 'running shoes');
-    await page.click('button[aria-label="Search"]');
-    await page.waitForSelector('title');
-    var urls = await page.evaluate(() => {
-        var imgs = document.querySelectorAll('img');
-        var arr = [];
-        for(var i = 0; i < imgs.length; i++) {
-            arr.push(imgs[i].src);
-        }
-        return arr;
-    })
-    console.log(urls);
-})();
+import React from 'react';
+import renderer from 'react-test-renderer';
+import App from './client/components/app.jsx';
+
+test('<App /> renders correctly', () => {
+  const tree = renderer.create(<App />).toJSON();
+  expect(tree).toMatchSnapshot();
+})
+
+
+import Stars from './client/components/stars.jsx';
+test('<Stars /> renders correctly', () => {
+  const tree = renderer.create(<Stars />).toJSON();
+  expect(tree).toMatchSnapshot();
+})
+
+
+import FittingRange from './client/components/fittingRange.jsx';
+test('<FittingRange /> renders correctly', () => {
+  const tree = renderer.create(<FittingRange />).toJSON();
+  expect(tree).toMatchSnapshot();
+})
+
+
+import SummaryReviews from './client/components/summaryReviews.jsx';
+test('<SummaryReviews /> renders correctly', () => {
+  const tree = renderer.create(<SummaryReviews />).toJSON();
+  expect(tree).toMatchSnapshot();
+})
+
+
+import ShortReview from './client/components/shortReview.jsx';
+test('<ShortReview /> renders correctly', () => {
+  const tree = renderer.create(<ShortReview />).toJSON();
+  expect(tree).toMatchSnapshot();
+})
+
+
+import FullReviews from './client/components/fullReviews.jsx';
+test('<FullReviews /> renders correctly', () => {
+  const tree = renderer.create(<FullReviews />).toJSON();
+  expect(tree).toMatchSnapshot();
+})
+
+
+import LongReview from './client/components/longReview.jsx';
+test('<LongReview /> renders correctly', () => {
+  const tree = renderer.create(<LongReview />).toJSON();
+  expect(tree).toMatchSnapshot();
+})

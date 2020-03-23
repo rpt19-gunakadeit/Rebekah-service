@@ -18,7 +18,7 @@ class ShortReview extends React.Component {
 
   render() {
     var review = this.props.review;
-    var date = moment(review.date).format('MMM DD, YYYY');
+    var date = review ? moment(review.date).format('MMM DD, YYYY'): null;
     var reviewBody, expand;
 
     if (review.body) {

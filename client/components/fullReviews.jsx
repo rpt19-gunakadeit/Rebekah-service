@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 import Stars from './stars.jsx';
 import LongReview from './longReview.jsx';
 import FittingRange from './fittingRange.jsx';
@@ -74,7 +75,7 @@ class FullReviews extends React.Component {
               <Stars numStars={this.props.numStars}/>
             </div>
             <div className='num-reviews'>
-              {this.props.reviews.length} REVIEWS
+              {this.props.reviews ? this.props.reviews.length: 0} REVIEWS
             </div>
           </div>
           <FittingRange size={avgSize} comfort={avgComfort} durability={avgDurability} row={true}/>

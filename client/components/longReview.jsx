@@ -71,7 +71,7 @@ class LongReview extends React.Component {
 
   render() {
     var review = this.props.review;
-    var date = moment(review.date).format('MMM DD, YYYY');
+    var date = review ? moment(review.date).format('MMM DD, YYYY'): null;
     var flag = '\u2690'
 
     return (

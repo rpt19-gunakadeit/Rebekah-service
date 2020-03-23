@@ -1,0 +1,265 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> renders correctly 1`] = `
+<div>
+  <div
+    id="reviews-header"
+    onClick={[Function]}
+  >
+    <span>
+      Reviews (
+      0
+      )
+    </span>
+    <div>
+      <span
+        className="stars"
+      >
+        <span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+        </span>
+      </span>
+      <span>
+        <i
+          className="arrow down"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<FittingRange /> renders correctly 1`] = `
+<div
+  className="fit-scales-column"
+>
+  <div
+    className="slidecontainer"
+  />
+</div>
+`;
+
+exports[`<FullReviews /> renders correctly 1`] = `
+<div
+  className="modal"
+>
+  <header
+    id="modal-header"
+  >
+    <span
+      className="exit"
+      onClick={[Function]}
+    >
+       Product Name & price here 
+    </span>
+    <span
+      className="exit"
+      onClick={[Function]}
+    >
+       X 
+    </span>
+  </header>
+  <div
+    id="modal-content"
+  >
+    <div
+      className="full-reviews-summary"
+    >
+      <div>
+        <span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+        </span>
+      </div>
+      <div
+        className="num-reviews"
+      >
+        0
+         REVIEWS
+      </div>
+    </div>
+    <div
+      className="fit-scales breaker-line"
+    >
+      <div
+        className="slidecontainer"
+      />
+    </div>
+    <div
+      className="breaker-line"
+    >
+      <select
+        defaultValue="date"
+        onChange={[Function]}
+      >
+        <option
+          value="upvotes"
+        >
+          Sort By: Most Helpful
+        </option>
+        <option
+          value="date"
+        >
+          Sort By: Newest
+        </option>
+        <option
+          value="stars"
+        >
+          Sort By: Highest to Lowest
+        </option>
+        <option
+          value="starsLow"
+        >
+          Sort By: Lowest to Highest
+        </option>
+      </select>
+    </div>
+    <div
+      className="full-revew-load-more"
+    />
+  </div>
+</div>
+`;
+
+exports[`<Stars /> renders correctly 1`] = `
+<span>
+  <span
+    className="star"
+  >
+    ★
+  </span>
+  <span
+    className="star"
+  >
+    ★
+  </span>
+  <span
+    className="star"
+  >
+    ★
+  </span>
+  <span
+    className="star"
+  >
+    ★
+  </span>
+  <span
+    className="star"
+  >
+    ★
+  </span>
+</span>
+`;
+
+exports[`<SummaryReviews /> renders correctly 1`] = `
+<div
+  id="short-reviews"
+>
+  <div>
+    <div
+      id="short-reviews-header"
+    >
+      <span
+        className="stars"
+      >
+         
+        <span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+        </span>
+         
+      </span>
+      0
+       Stars
+    </div>
+    <div>
+      <span
+        className="write-review-link"
+      >
+        Write a Review
+      </span>
+    </div>
+  </div>
+  <div />
+  <div
+    className="more-reviews"
+  >
+    <span
+      className="more-reviews-link"
+      onClick={[Function]}
+    >
+      More Reviews
+    </span>
+  </div>
+</div>
+`;

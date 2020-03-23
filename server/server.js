@@ -25,6 +25,7 @@ app.post('/flagReview/:reviewId/:flag', (req, res) => {
     .catch((error) => res.status(500).send('Error in updating flag'))
 })
 
+
 app.listen(port, () => console.log(`Reviews service is listening on port ${port}`));
 
 

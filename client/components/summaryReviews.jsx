@@ -10,7 +10,7 @@ var SummaryReviews = (props) => {
       <div>
         <div id='short-reviews-header'>
           <span className='stars'> <Stars numStars={props.numStars}/> </span>
-          {props.numStars.toFixed(1)} Stars
+          {props.numStars ? props.numStars.toFixed(1): 0} Stars
         </div>
         <div>
           <span className='write-review-link'>Write a Review</span>
@@ -18,9 +18,9 @@ var SummaryReviews = (props) => {
       </div>
 
       <div>
-        {props.reviews.map((review, index) => {
+        {props.reviews ? props.reviews.map((review, index) => {
           return <ShortReview review={review} key={index}/>
-        })}
+        }): null}
       </div>
 
       <div className='more-reviews'>

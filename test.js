@@ -30,8 +30,18 @@ test('<SummaryReviews /> renders correctly', () => {
 
 
 import ShortReview from './client/components/shortReview.jsx';
+const shortData = {
+  title: 'pariatur culpa aute quis incididunt',
+  body:
+   'Eu ut occaecat non fugiat. Labore non fugiat laboris amet pariatur voluptate. Ex voluptate velit cupidatat veniam occaecat. Sint enim incididunt eu aute adipisicing est ipsum minim.\nIpsum elit est in deserunt tempor Lorem veniam commodo.',
+  stars: 5,
+  date: '2020-02-06T01:20:00.000Z',
+  location: 'Lake Jonathanmouth, Nebraska',
+  user: 'Raoul54498'
+};
+
 test('<ShortReview /> renders correctly', () => {
-  const tree = renderer.create(<ShortReview />).toJSON();
+  const tree = renderer.create(<ShortReview review={shortData}/>).toJSON();
   expect(tree).toMatchSnapshot();
 })
 
@@ -44,7 +54,22 @@ test('<FullReviews /> renders correctly', () => {
 
 
 import LongReview from './client/components/longReview.jsx';
+const longReviewData = {
+  id: 598,
+  product_id: 20,
+  title: 'pariatur culpa aute quis incididunt',
+  body:
+   'Eu ut occaecat non fugiat. Labore non fugiat laboris amet pariatur voluptate. Ex voluptate velit cupidatat veniam occaecat. Sint enim incididunt eu aute adipisicing est ipsum minim.\nIpsum elit est in deserunt tempor Lorem veniam commodo.',
+  stars: 5,
+  date: '2020-02-06T01:20:00.000Z',
+  size_rating: 1,
+  comfort_rating: 1,
+  durability_rating: null,
+  location: 'Lake Jonathanmouth, Nebraska',
+  userId: 915,
+  user: 'Raoul54498'
+}
 test('<LongReview /> renders correctly', () => {
-  const tree = renderer.create(<LongReview />).toJSON();
+  const tree = renderer.create(<LongReview review={longReviewData}/>).toJSON();
   expect(tree).toMatchSnapshot();
 })

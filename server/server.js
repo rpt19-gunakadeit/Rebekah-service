@@ -7,7 +7,6 @@ const app = express();
 app.use(express.static('./public/dist'));
 
 app.get('/reviews/:id/:filter', (req, res) => {
-  console.log('REQ PARAMS', req.params, req.params.filter)
   Reviews.getReviews(req.params.id, req.params.filter)
     .then((reviews) => res.status(200).send(reviews))
     .catch((error) => res.status(500).send('Error in getting reviews from DB', error))
@@ -24,6 +23,7 @@ app.post('/flagReview/:reviewId/:flag', (req, res) => {
     .then(() => res.status(200).send('OK'))
     .catch((error) => res.status(500).send('Error in updating flag'))
 })
+
 
 app.listen(port, () => console.log(`Reviews service is listening on port ${port}`));
 

@@ -28,5 +28,5 @@ dist/
 # username & password for myql
 config.js
 
-# puppeteer script from David
-test.js
+# puppeteer tests from David
+DavidsTest.js

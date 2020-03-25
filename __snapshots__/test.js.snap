@@ -1,0 +1,489 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> renders correctly 1`] = `
+<div>
+  <div
+    id="reviews-header"
+    onClick={[Function]}
+  >
+    <span>
+      Reviews (
+      0
+      )
+    </span>
+    <div>
+      <span
+        className="stars"
+      >
+        <span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+        </span>
+      </span>
+      <span>
+        <i
+          className="arrow down"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<FittingRange /> renders correctly 1`] = `
+<div
+  className="fit-scales-column"
+>
+  <div
+    className="slidecontainer"
+  />
+</div>
+`;
+
+exports[`<FullReviews /> renders correctly 1`] = `
+<div
+  className="modal"
+>
+  <header
+    id="modal-header"
+  >
+    <span
+      className="exit"
+      onClick={[Function]}
+    >
+       Product Name & price here 
+    </span>
+    <span
+      className="exit"
+      onClick={[Function]}
+    >
+       X 
+    </span>
+  </header>
+  <div
+    id="modal-content"
+  >
+    <div
+      className="full-reviews-summary"
+    >
+      <div>
+        <span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+        </span>
+      </div>
+      <div
+        className="num-reviews"
+      >
+        0
+         REVIEWS
+      </div>
+    </div>
+    <div
+      className="fit-scales breaker-line"
+    >
+      <div
+        className="slidecontainer"
+      />
+    </div>
+    <div
+      className="breaker-line"
+    >
+      <select
+        defaultValue="date"
+        onChange={[Function]}
+      >
+        <option
+          value="upvotes"
+        >
+          Sort By: Most Helpful
+        </option>
+        <option
+          value="date"
+        >
+          Sort By: Newest
+        </option>
+        <option
+          value="stars"
+        >
+          Sort By: Highest to Lowest
+        </option>
+        <option
+          value="starsLow"
+        >
+          Sort By: Lowest to Highest
+        </option>
+      </select>
+    </div>
+    <div
+      className="full-revew-load-more"
+    />
+  </div>
+</div>
+`;
+
+exports[`<LongReview /> renders correctly 1`] = `
+<div
+  className="breaker-line"
+  id="long-review"
+>
+  <div
+    className="long-review-stars"
+  >
+    <span>
+      <span
+        className="star-checked"
+      >
+        ★
+      </span>
+      <span
+        className="star-checked"
+      >
+        ★
+      </span>
+      <span
+        className="star-checked"
+      >
+        ★
+      </span>
+      <span
+        className="star-checked"
+      >
+        ★
+      </span>
+      <span
+        className="star-checked"
+      >
+        ★
+      </span>
+    </span>
+    <div
+      className="fit-scales-column"
+    >
+      <div
+        className="slidecontainer"
+      >
+        <span
+          className="fit-title"
+        >
+          Size
+        </span>
+        <input
+          className="slider"
+          max="3"
+          min="1"
+          readOnly={true}
+          step=".1"
+          type="range"
+          value={1}
+        />
+        <div
+          className="sliderLabels"
+        >
+          <span>
+            Runs Small
+          </span>
+          <span>
+            Runs Big
+          </span>
+        </div>
+      </div>
+      <div
+        className="slidecontainer"
+      >
+        <span
+          className="fit-title"
+        >
+          Comfort
+        </span>
+        <input
+          className="slider"
+          max="3"
+          min="1"
+          readOnly={true}
+          step=".1"
+          type="range"
+          value={1}
+        />
+        <div
+          className="sliderLabels"
+        >
+          <span>
+            Uncomfortable
+          </span>
+          <span>
+            Very Comfortable
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="long-review-details"
+  >
+    <span
+      className="full-review-title"
+    >
+      <b>
+        pariatur culpa aute quis incididunt
+      </b>
+    </span>
+    <span
+      className="full-review-body"
+    >
+      Eu ut occaecat non fugiat. Labore non fugiat laboris amet pariatur voluptate. Ex voluptate velit cupidatat veniam occaecat. Sint enim incididunt eu aute adipisicing est ipsum minim.
+Ipsum elit est in deserunt tempor Lorem veniam commodo.
+       
+       [This review was collected as part of a promotion.]
+    </span>
+    <span
+      className="full-review-sml-details"
+    >
+      Feb 05, 2020
+        -  
+      Raoul54498
+        -  
+      Lake Jonathanmouth, Nebraska
+    </span>
+    <span
+      className="full-review-sml-details"
+    >
+      Use for: Everyday wear
+    </span>
+    <span
+      id="review-rating"
+    >
+      <span
+        className="arrow-icon arrow-up"
+        onClick={[Function]}
+      >
+        ⇧
+      </span>
+      <span
+        className="review-rating-num"
+      />
+      <span
+        className="arrow-icon arrow-down"
+        onClick={[Function]}
+      >
+        ⇩
+      </span>
+      <span
+        className="review-rating-num"
+      />
+      <span
+        className="flag-icon"
+        onClick={[Function]}
+      >
+        ⚐
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<ShortReview /> renders correctly 1`] = `
+<div
+  id="review-preview"
+>
+  pariatur culpa aute quis incididunt
+  <div
+    className="review-info"
+  >
+    <span
+      className="stars"
+    >
+       
+      <span>
+        <span
+          className="star-checked"
+        >
+          ★
+        </span>
+        <span
+          className="star-checked"
+        >
+          ★
+        </span>
+        <span
+          className="star-checked"
+        >
+          ★
+        </span>
+        <span
+          className="star-checked"
+        >
+          ★
+        </span>
+        <span
+          className="star-checked"
+        >
+          ★
+        </span>
+      </span>
+       
+    </span>
+    <span
+      className="review-user-date"
+    >
+      Raoul54498
+       - 
+      Feb 05, 2020
+    </span>
+  </div>
+  <span>
+    Eu ut occaecat non fugiat. Labore non fugiat laboris amet pariatur voluptate. Ex voluptate velit cup
+    ...
+  </span>
+  <div>
+    <span
+      className="more-less"
+      onClick={[Function]}
+    >
+      More
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Stars /> renders correctly 1`] = `
+<span>
+  <span
+    className="star"
+  >
+    ★
+  </span>
+  <span
+    className="star"
+  >
+    ★
+  </span>
+  <span
+    className="star"
+  >
+    ★
+  </span>
+  <span
+    className="star"
+  >
+    ★
+  </span>
+  <span
+    className="star"
+  >
+    ★
+  </span>
+</span>
+`;
+
+exports[`<SummaryReviews /> renders correctly 1`] = `
+<div
+  id="short-reviews"
+>
+  <div>
+    <div
+      id="short-reviews-header"
+    >
+      <span
+        className="stars"
+      >
+         
+        <span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+        </span>
+         
+      </span>
+      0
+       Stars
+    </div>
+    <div>
+      <span
+        className="write-review-link"
+      >
+        Write a Review
+      </span>
+    </div>
+  </div>
+  <div />
+  <div
+    className="more-reviews"
+  >
+    <span
+      className="more-reviews-link"
+      onClick={[Function]}
+    >
+      More Reviews
+    </span>
+  </div>
+</div>
+`;

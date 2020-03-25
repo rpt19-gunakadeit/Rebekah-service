@@ -29,4 +29,4 @@ dist/
 config.js
 
 # puppeteer tests from David
-test.js
+DavidsTest.js

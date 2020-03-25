@@ -20,9 +20,12 @@ class App extends React.Component {
   }
 
   getReviews() {
+    const parsedUrl = new URL(window.location.href);
+    const productId = parsedUrl.searchParams.get('');
+
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:2000/reviews/19/date',
+      url: 'http://localhost:2000/reviews/' + productId + '/date',
       success: (data) => {
         this.setState({
           reviews: data.reviews,

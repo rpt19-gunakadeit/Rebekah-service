@@ -7,7 +7,6 @@ const app = express();
 app.use(express.static('./public/dist'));
 
 app.get('/reviews/:id/:filter', (req, res) => {
-  console.log('REQ PARAMS', req.params, req.params.filter)
   Reviews.getReviews(req.params.id, req.params.filter)
     .then((reviews) => res.status(200).send(reviews))
     .catch((error) => res.status(500).send('Error in getting reviews from DB', error))

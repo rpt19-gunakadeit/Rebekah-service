@@ -1,9 +1,11 @@
 const express = require('express');
+const cors = require('cors');
 const db = require('../database/database.js')
 const Reviews = require('../database/controllers/reviews.js');
 const port = 2000;
 const app = express();
 
+app.use(cors());
 app.use(express.static('./public/dist'));
 
 app.get('/reviews/:id/:filter', (req, res) => {

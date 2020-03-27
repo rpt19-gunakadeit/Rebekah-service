@@ -34,7 +34,6 @@ var getReviews = (productId, filter = 'date') => {
           resolve(result)
         })
         .catch((error) => reject(error))
-    }
   })
 }
 

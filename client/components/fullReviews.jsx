@@ -64,7 +64,7 @@ class FullReviews extends React.Component {
     var avgDurability = durabilitySum / durabilityCount;
 
     return (
-      <div className='modal'>
+      <div className='reviewModal'>
         <header id='modal-header'>
           <span className='exit' onClick={() => this.props.showAllReviews()}> Product Name & price here </span>
           <span className='exit' onClick={() => this.props.showAllReviews()}> X </span>

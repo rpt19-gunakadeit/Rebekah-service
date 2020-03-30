@@ -8,7 +8,7 @@ import FullReviews from './fullReviews.jsx';
 import LongReview from './longReview.jsx';
 
 
-class Reviews extends React.Component {
+export default class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -57,7 +57,7 @@ class Reviews extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className='breaker-line'>
         {this.state.fullReviews ? <FullReviews showAllReviews={this.showAllReviews.bind(this)} numStars={this.state.avgStars} reviews={this.state.reviews}/>: null}
         <div id="reviews-header" onClick={() => this.showThreeReviews()}>
           <span>Reviews ({this.state.reviews.length})</span>
@@ -76,4 +76,5 @@ class Reviews extends React.Component {
   }
 }
 
-export default Reviews;
+window.Reviews = Reviews;
+//ReactDOM.render(<Reviews/>, document.getElementById('reviews'))

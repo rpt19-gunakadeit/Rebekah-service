@@ -1,7 +1,10 @@
 const path = require('path');
 
 module.exports = {
-  entry: './client/index.jsx',
+  entry: {
+    reviews: './client/components/reviews.jsx',
+    shippingReturns: './client/components/shippingReturns.jsx'
+  },
   module: {
     rules: [
       {
@@ -13,11 +16,15 @@ module.exports = {
         options: {
           presets: ['@babel/preset-react', '@babel/preset-env']
         },
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, './public/dist')
   }
 }

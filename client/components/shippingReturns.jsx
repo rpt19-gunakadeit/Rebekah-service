@@ -13,21 +13,6 @@ export default class ShippingReturns extends React.Component {
   }
 
   render() {
-    var details = null;
-
-    if (this.state.extended) {
-      details = (
-        <div id='short-reviews'>
-          Free standard shipping and free 60-day returns for Nike Members. <a>Learn more. Return policy exclusions apply.</a>
-          <ul>
-            <li>Standard / Arrives 2-4 Business Days</li>
-            <li>Two-Day / Arrives 2-3 Business Days</li>
-            <li>Next-Day / Arrives 1-2 Business Days</li>
-          </ul>
-          <a>Pick-up available at select Nike Stores.</a>
-        </div>
-      )
-    }
 
     return (
       <div className='breaker-line'>
@@ -37,11 +22,25 @@ export default class ShippingReturns extends React.Component {
             {this.state.extended ? <i className="arrow up"></i>: <i className="arrow down"></i>}
           </span>
         </div>
-        {details}
+        {this.state.extended ? <Details/>: null}
       </div>
 
     )
   }
+}
+
+var Details = (props) => {
+  return (
+    <div id='short-reviews'>
+      Free standard shipping and free 60-day returns for Nike Members. <a>Learn more. Return policy exclusions apply.</a>
+      <ul>
+        <li>Standard / Arrives 2-4 Business Days</li>
+        <li>Two-Day / Arrives 2-3 Business Days</li>
+        <li>Next-Day / Arrives 1-2 Business Days</li>
+      </ul>
+      <a>Pick-up available at select Nike Stores.</a>
+    </div>
+  )
 }
 
 window.ShippingReturns = ShippingReturns;

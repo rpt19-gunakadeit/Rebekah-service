@@ -78,3 +78,8 @@ export default class Reviews extends React.Component {
 
 window.Reviews = Reviews;
 //ReactDOM.render(<Reviews/>, document.getElementById('reviews'))
+
+
+// transitionName="slide"
+//                 transitionEnterTimeout={500}
+//                 transitionLeaveTimeout={500}/>

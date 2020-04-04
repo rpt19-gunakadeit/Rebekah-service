@@ -58,7 +58,7 @@ export default class Reviews extends React.Component {
 
     return (
       <div className='breaker-line'>
-        {this.state.fullReviews ? <FullReviews showAllReviews={this.showAllReviews.bind(this)} numStars={this.state.avgStars} reviews={this.state.reviews}/>: null}
+        {this.state.fullReviews ? <FullReviews showAllReviews={this.showAllReviews.bind(this)} numStars={this.state.avgStars} reviews={this.state.reviews} product={this.props.productDetails}/>: null}
         <div id="reviews-header" onClick={() => this.showThreeReviews()}>
           <span>Reviews ({this.state.reviews.length})</span>
           <div>
@@ -70,7 +70,7 @@ export default class Reviews extends React.Component {
             </span>
           </div>
         </div>
-        {this.state.threeReviews ? <SummaryReviews numStars={this.state.avgStars} reviews={this.state.reviews.slice(0,3)} showAllReviews={this.showAllReviews.bind(this)}/>: null}
+        {this.state.threeReviews ? <SummaryReviews numStars={this.state.avgStars} reviews={this.state.reviews.slice(0,3)} showAllReviews={this.showAllReviews.bind(this)} />: null}
       </div>
     )
   }
@@ -79,7 +79,3 @@ export default class Reviews extends React.Component {
 window.Reviews = Reviews;
 //ReactDOM.render(<Reviews/>, document.getElementById('reviews'))
 
-
-// transitionName="slide"
-//                 transitionEnterTimeout={500}
-//                 transitionLeaveTimeout={500}/>

@@ -21,9 +21,12 @@ class FullReviews extends React.Component {
   }
 
   reSortReviews(filter = 'date') {
+    const parsedUrl = new URL(window.location.href);
+    const productId = parsedUrl.searchParams.get('');
+
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:2000/reviews/19/' + filter,
+      url: 'http://localhost:2000/reviews/' + productId + '/' + filter,
       success: (data) => {
         this.setState({
           reviews: data.reviews,
@@ -66,7 +69,14 @@ class FullReviews extends React.Component {
     return (
       <div className='reviewModal'>
         <header id='modal-header'>
-          <span className='exit' onClick={() => this.props.showAllReviews()}> Product Name & price here </span>
+          <span className='exit small-product-info' onClick={() => this.props.showAllReviews()}>
+            <img src={this.props.product.thumbnail} className='thumbnail'/>
+            <div className='small-product-details'>
+              <span className='detail'>{this.props.product.name}</span>
+              <span className='detail'>${this.props.product.salePrice}</span>
+              <span className='detail price'>${this.props.product.price}</span>
+            </div>
+          </span>
           <span className='exit' onClick={() => this.props.showAllReviews()}> X </span>
         </header>
         <div id='modal-content'>

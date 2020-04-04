@@ -27,6 +27,7 @@ build/
 
 # username & password for myql
 config.js
+.aws.json
 
 # puppeteer tests from David
 DavidsTest.js

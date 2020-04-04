@@ -3,13 +3,13 @@
   width: 75%; */
   display: flex;
   flex-direction: row;
-  padding: 28px 0px;
+  padding: 28px 0px 0px 0px;
   position: relative;
   justify-content: space-between;
   align-items: center;
   align-content: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 1em;
+  font-size: 1.15em;
 }
 
 #reviews-header:hover {
@@ -17,14 +17,11 @@
 }
 
 #short-reviews{
-  /* margin: auto;
-  width: 75%; */
   display: flex;
   flex-direction: column;
   padding: 28px 0px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  /* font-size: 1.00em; */
-  transition: all .5s ease-in-out;
+  max-width: 350px;
 }
 
 #short-reviews-header {
@@ -84,7 +81,7 @@ i {
 }
 
 .more-reviews {
-  margin-top: 75px;
+  margin-top: 25px;
 }
 
 .more-reviews-link {
@@ -152,6 +149,35 @@ i {
 
 .exit:hover {
   cursor: pointer;
+}
+
+.small-product-info {
+  display: flex;
+  flex-direction: row;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: .90em;
+
+}
+
+.thumbnail {
+  height: 60px;
+  width: 60px;
+}
+
+.detail {
+  padding: 2px 0px;
+}
+
+.price {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.small-product-details {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  align-items: center;
 }
 
 .full-reviews-summary {

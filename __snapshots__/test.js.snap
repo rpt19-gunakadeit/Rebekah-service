@@ -1,58 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<App /> renders correctly 1`] = `
-<div>
-  <div
-    id="reviews-header"
-    onClick={[Function]}
-  >
-    <span>
-      Reviews (
-      0
-      )
-    </span>
-    <div>
-      <span
-        className="stars"
-      >
-        <span>
-          <span
-            className="star"
-          >
-            ★
-          </span>
-          <span
-            className="star"
-          >
-            ★
-          </span>
-          <span
-            className="star"
-          >
-            ★
-          </span>
-          <span
-            className="star"
-          >
-            ★
-          </span>
-          <span
-            className="star"
-          >
-            ★
-          </span>
-        </span>
-      </span>
-      <span>
-        <i
-          className="arrow down"
-        />
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`<FittingRange /> renders correctly 1`] = `
 <div
   className="fit-scales-column"
@@ -65,22 +12,46 @@ exports[`<FittingRange /> renders correctly 1`] = `
 
 exports[`<FullReviews /> renders correctly 1`] = `
 <div
-  className="modal"
+  className="reviewModal"
 >
   <header
     id="modal-header"
   >
     <span
-      className="exit"
+      className="exit small-product-info"
       onClick={[Function]}
     >
-       Product Name & price here 
+      <img
+        className="thumbnail"
+        src="https://static.nike.com/a/images/t_default/eric5lwitzffpoisq0rj/blazer-mid-77-vintage-shoe"
+      />
+      <div
+        className="small-product-details"
+      >
+        <span
+          className="detail"
+        >
+          Nike Blazers
+        </span>
+        <span
+          className="detail"
+        >
+          $
+          150
+        </span>
+        <span
+          className="detail price"
+        >
+          $
+          185
+        </span>
+      </div>
     </span>
     <span
       className="exit"
       onClick={[Function]}
     >
-       X 
+      ×
     </span>
   </header>
   <div
@@ -324,6 +295,61 @@ Ipsum elit est in deserunt tempor Lorem veniam commodo.
         ⚐
       </span>
     </span>
+  </div>
+</div>
+`;
+
+exports[`<Reviews /> renders correctly 1`] = `
+<div
+  className="breaker-line"
+>
+  <div
+    id="reviews-header"
+    onClick={[Function]}
+  >
+    <span>
+      Reviews (
+      0
+      )
+    </span>
+    <div>
+      <span
+        className="stars"
+      >
+        <span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+          <span
+            className="star"
+          >
+            ★
+          </span>
+        </span>
+      </span>
+      <span>
+        <i
+          className="arrow down"
+        />
+      </span>
+    </div>
   </div>
 </div>
 `;

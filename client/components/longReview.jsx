@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import moment from 'moment';
 import Stars from './stars.jsx';
 import FittingRange from './fittingRange.jsx';
@@ -40,9 +40,13 @@ class LongReview extends React.Component {
   }
 
   changeVote(numVotes, vote, cbToReview) {
+    const parsedUrl = new URL(window.location.href);
+    const host = parsedUrl.hostname;
+
     $.ajax({
       method: 'POST',
-      url: 'http://localhost:2000/updateVote/' + this.props.review.id + '/' + numVotes + '/' + vote,
+      url: 'http://' + host + ':2000/updateVote/' + this.props.review.id + '/' + numVotes + '/' + vote,
+      //url: 'http://18.219.106.183:2000/updateVote/' + this.props.review.id + '/' + numVotes + '/' + vote,
       success: () => cbToReview(null),
       error: (err) => cbToReview(err),
     })
@@ -61,9 +65,12 @@ class LongReview extends React.Component {
   }
 
   flag(cbToFlag) {
+    const parsedUrl = new URL(window.location.href);
+    const host = parsedUrl.hostname;
+
     $.ajax({
       method: 'POST',
-      url: 'http://localhost:2000/flagReview/' + this.props.review.id + '/' + !this.state.flagged,
+      url: 'http://' + host + ':2000/updateVote/' + this.props.review.id + '/' + !this.state.flagged,
       success: () => cbToFlag(null),
       error: (err) => cbToFlag(err),
     })

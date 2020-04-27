@@ -1,6 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import $ from 'jquery';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import $ from 'jquery';
+import '../../public/dist/app.css'
 import Stars from './stars.jsx';
 import SummaryReviews from './summaryReviews.jsx';
 import ShortReview from './shortReview.jsx';
@@ -21,11 +22,13 @@ export default class Reviews extends React.Component {
 
   getReviews() {
     const parsedUrl = new URL(window.location.href);
+    const host = parsedUrl.hostname;
     const productId = parsedUrl.searchParams.get('');
 
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:2000/reviews/' + productId + '/date',
+      url: 'http://' + host + ':2000/reviews/' + productId + '/date',
+      //url: 'http://18.219.106.183:2000/reviews/' + productId + '/date',
       success: (data) => {
         this.setState({
           reviews: data.reviews,
@@ -43,6 +46,7 @@ export default class Reviews extends React.Component {
   }
 
   showThreeReviews() {
+    // changes the property to true or false
     this.setState({
       threeReviews: !this.state.threeReviews
     })
@@ -78,4 +82,3 @@ export default class Reviews extends React.Component {
 
 window.Reviews = Reviews;
 //ReactDOM.render(<Reviews/>, document.getElementById('reviews'))
-

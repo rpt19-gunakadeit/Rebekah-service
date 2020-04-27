@@ -1,5 +1,5 @@
-import React from 'react';
-import $ from 'jquery';
+// import React from 'react';
+//  import $ from 'jquery';
 import Stars from './stars.jsx';
 import LongReview from './longReview.jsx';
 import FittingRange from './fittingRange.jsx';
@@ -22,11 +22,13 @@ class FullReviews extends React.Component {
 
   reSortReviews(filter = 'date') {
     const parsedUrl = new URL(window.location.href);
+    const host = parsedUrl.hostname;
     const productId = parsedUrl.searchParams.get('');
 
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:2000/reviews/' + productId + '/' + filter,
+      url: 'http://' + host + ':2000/reviews/' + productId + '/' + filter,
+      //url: 'http://18.219.106.183:2000/reviews/' + productId + '/' + filter,
       success: (data) => {
         this.setState({
           reviews: data.reviews,
@@ -77,7 +79,7 @@ class FullReviews extends React.Component {
               <span className='detail price'>${this.props.product.price}</span>
             </div>
           </span>
-          <span className='exit' onClick={() => this.props.showAllReviews()}> X </span>
+          <span className='exit' onClick={() => this.props.showAllReviews()}>&times;</span>
         </header>
         <div id='modal-content'>
           <div className='full-reviews-summary'>

@@ -5,30 +5,60 @@ import sinon from 'sinon';
 
 
 ////////////// TEST THE APP COMPONENT ////////////////////
-import App from './client/components/app.jsx';
-test('<App /> renders correctly', () => {
-  const tree = renderer.create(<App />).toJSON();
-  expect(tree).toMatchSnapshot();
+import Reviews from './client/components/reviews.jsx';
 
+
+
+test('<Reviews /> renders correctly', () => {
+  const component = renderer.create(<Reviews />).toJSON();
+  expect(component).toMatchSnapshot();
 })
 
-test('<App /> renders the inner <Stars /> component', () => {
-  const wrapper = mount(<App />);
+
+
+test('<Reviews /> initally renders the inner <Stars /> component, but not the <SummaryReviews /> component', () => {
+  const wrapper = mount(<Reviews />);
   expect(wrapper.find(Stars).length).toEqual(1);
+  expect(wrapper.find(SummaryReviews).length).toEqual(0);
+  expect(wrapper.find('i.up').length).toEqual(0);
+  expect(wrapper.find('i.down').length).toEqual(1);
+  wrapper.unmount();
 })
 
-test('<App /> default state to show short reviews is false', () => {
-  const wrapper = shallow(<App/>);
-  expect(wrapper.state('threeReviews')).toBe(false);
+test('<Reviews /> default state to show short reviews is false', () => {
+  const component = shallow(<Reviews/>);
+  expect(component.state('threeReviews')).toBe(false);
 })
 
-test('<App /> simulates click events to show short reviews', () => {
-  const onClick = sinon.spy();
-  const wrapper = shallow(<App onClick={onClick} />);
-  wrapper.find('#reviews-header').simulate('click');
-  expect(onClick).toHaveBeenCalledTimes(1);
-  expect(wrapper.state('threeReviews')).toBe(true);
+test('<Reviews /> simulates click events to show short reviews', () => {
+  const component = shallow(<Reviews />);
+  expect(component.state('threeReviews')).toEqual(false);
+  expect(component.find('SummaryReviews').length).toEqual(0);
+
+  component.find('div#reviews-header').simulate('click');
+  expect(component.state('threeReviews')).toEqual(true);
+  expect(component.find('SummaryReviews').length).toEqual(1);
 });
+
+test('<Reviews /> correctly renders elements based on its state', () => {
+  const component = shallow(<Reviews />);
+  expect(component.find('span').at(0).text()).toEqual('Reviews (0)');
+
+  component.setState({ reviews: [{review: 1}, {review: 2}] })
+  expect(component.find('span').at(0).text()).toEqual('Reviews (2)');
+});
+
+test('<Reviews /> passes props to the <Stars /> component', () => {
+  let component = mount(<Reviews />);
+  expect(component.find(Stars).length).toEqual(1);
+  let starsComponent = component.find(Stars);
+  expect(starsComponent.prop('numStars')).toEqual(null);
+
+  component.setState({ avgStars: 4 });
+  expect(component.find(Stars).prop('numStars')).toEqual(4);
+  component.unmount();
+})
+
 
 
 
@@ -89,13 +119,19 @@ test('<ShortReview /> renders the inner <Stars /> component', () => {
 
 ////////////// TEST THE FULLREVIEWS COMPONENT ////////////////////
 import FullReviews from './client/components/fullReviews.jsx';
+const productDetails = {
+  name: 'Nike Blazers',
+  price: 185,
+  salePrice: 150,
+  thumbnail:'https://static.nike.com/a/images/t_default/eric5lwitzffpoisq0rj/blazer-mid-77-vintage-shoe'
+}
 test('<FullReviews /> renders correctly', () => {
-  const tree = renderer.create(<FullReviews />).toJSON();
+  const tree = renderer.create(<FullReviews product={productDetails}/>).toJSON();
   expect(tree).toMatchSnapshot();
 })
 
 test('<FullReviews /> renders the inner <Stars /> component', () => {
-  const wrapper = mount(<FullReviews/>);
+  const wrapper = mount(<FullReviews product={productDetails}/>);
   expect(wrapper.find(Stars).length).toEqual(1);
 })
 

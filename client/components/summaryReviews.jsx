@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import Stars from './stars.jsx';
 import ShortReview from './shortReview.jsx';
 

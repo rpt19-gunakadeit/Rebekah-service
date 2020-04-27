@@ -2,8 +2,8 @@ module.exports = function(grunt) {
   // Load S3 plugin
   grunt.loadNpmTasks('grunt-aws')
 
-  // Static Webserver
-  grunt.loadNpmTasks('grunt-contrib-connect')
+  // plugin for minification
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Project configuration.
   grunt.initConfig({
@@ -17,22 +17,20 @@ module.exports = function(grunt) {
         region: 'us-east-2',
       },
       build: {
-        cwd: 'public/dist',
+        cwd: 'public/s3',
         src: '**',
       }
-
     },
-    connect: {
-      server: {
-        options: {
-          port: 8000,
-          base: 'public',
-          keepalive: true,
-        },
-      },
-    },
+    uglify: {
+      my_target: {
+        files: {
+          'public/s3/reviewsBundle.min.js': ['public/dist/reviews.bundle.js'],
+          'public/s3/shippingReturnsBundle.min.js': ['public/dist/shippingReturns.bundle.js']
+        }
+      }
+    }
   })
 
   // Default task(s).
-  grunt.registerTask('default', ['connect'])
+  grunt.registerTask('default', ['s3', 'uglify'])
 }

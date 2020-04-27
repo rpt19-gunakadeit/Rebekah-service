@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
 });
 connection.connect();
 connection.query('CREATE DATABASE IF NOT EXISTS nike_reviews;', (err, results) => {
-  err ? console.log(err): console.log("database created")
+  err ? console.log(err, "error in creating DB nike_reviews"): console.log("database created")
 })
 connection.end();
 

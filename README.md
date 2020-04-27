@@ -17,9 +17,10 @@
 ## Usage
 
 > The reviews render based on the product ID listed in the url. To display reviews, please query the product ID as follows: http://HOSTNAME:2000/reviews/?=PRODUCTIDHERE
-
+>
 > The product IDs are any number in the range of 1-100.
-
+>
+> The script bundles, CSS, and images are all store in AWS S3 & the links are in index.html.
 
 ## Development
 

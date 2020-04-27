@@ -27,8 +27,7 @@ export default class Reviews extends React.Component {
 
     $.ajax({
       method: 'GET',
-      url: 'http://' + host + ':2000/reviews/' + productId + '/date',
-      //url: 'http://18.219.106.183:2000/reviews/' + productId + '/date',
+      url: `http://${host}:2000/reviews/${productId}/date`,
       success: (data) => {
         this.setState({
           reviews: data.reviews,

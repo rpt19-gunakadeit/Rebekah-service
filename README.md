@@ -1,31 +1,25 @@
-<<<<<<< HEAD
-# Project Name
+# Nike Product Page- Reviews component
 
-> Nike
+> This is the services for displaying the reviews component on the Nike product mock page.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/rpt19-gunakadeit/Rebekah-proxy
+  - https://github.com/rpt19-gunakadeit/david-service
+  - https://github.com/rpt19-gunakadeit/abraham-productDisplay
+  - https://github.com/rpt19-gunakadeit/damien-styles-and-inventory
 
 ## Table of Contents
 
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
 1. [Development](#development)
 
 ## Usage
 
-> Some usage instructions
+> The reviews render based on the product ID listed in the url. To display reviews, please query the product ID as follows: http://HOSTNAME:2000/reviews/?=PRODUCTIDHERE
 
-## Requirements
+> The product IDs are any number in the range of 1-100.
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
 
 ## Development
 
@@ -33,11 +27,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 From within the root directory:
 
-```sh
-npm install -g webpack
-npm install
-```
 
-=======
-# Rebekah-service
->>>>>>> b5aa32d54b30044b4b8e6d52b560a7793df54b33
+- npm install
+- npm run seed (to fill out the database with mock reviews)
+- npm run start (to start the localhost server on port 2000)

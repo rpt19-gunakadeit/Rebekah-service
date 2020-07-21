@@ -8,7 +8,7 @@ import ShortReview from './shortReview.jsx';
 import FullReviews from './fullReviews.jsx';
 import LongReview from './longReview.jsx';
 
-
+// stateful class component to render reviews
 export default class Reviews extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +21,7 @@ export default class Reviews extends React.Component {
   }
 
   getReviews() {
+    // Product ID #20 listed in the url as a query param: localhost:2000/?=20
     const parsedUrl = new URL(window.location.href);
     const host = parsedUrl.hostname;
     const productId = parsedUrl.searchParams.get('');
@@ -44,6 +45,7 @@ export default class Reviews extends React.Component {
     this.getReviews();
   }
 
+  // show three abbreviated reviews
   showThreeReviews() {
     // changes the property to true or false
     this.setState({
@@ -51,6 +53,7 @@ export default class Reviews extends React.Component {
     })
   }
 
+  // open modal to view all reviews
   showAllReviews() {
     this.setState({
       fullReviews: !this.state.fullReviews
@@ -61,7 +64,9 @@ export default class Reviews extends React.Component {
 
     return (
       <div className='breaker-line'>
+
         {this.state.fullReviews ? <FullReviews showAllReviews={this.showAllReviews.bind(this)} numStars={this.state.avgStars} reviews={this.state.reviews} product={this.props.productDetails}/>: null}
+
         <div id="reviews-header" onClick={() => this.showThreeReviews()}>
           <span>Reviews ({this.state.reviews.length})</span>
           <div>
@@ -73,7 +78,9 @@ export default class Reviews extends React.Component {
             </span>
           </div>
         </div>
+
         {this.state.threeReviews ? <SummaryReviews numStars={this.state.avgStars} reviews={this.state.reviews.slice(0,3)} showAllReviews={this.showAllReviews.bind(this)} />: null}
+
       </div>
     )
   }

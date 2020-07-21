@@ -3,6 +3,7 @@ import moment from 'moment';
 import Stars from './stars.jsx';
 import FittingRange from './fittingRange.jsx';
 
+// stateful class component to show the full user review
 class LongReview extends React.Component {
   constructor(props) {
     super(props);
@@ -39,6 +40,7 @@ class LongReview extends React.Component {
     });
   }
 
+  // update upvote or downvote
   changeVote(numVotes, vote, cbToReview) {
     const parsedUrl = new URL(window.location.href);
     const host = parsedUrl.hostname;
@@ -64,6 +66,7 @@ class LongReview extends React.Component {
     })
   }
 
+  // update review to flag as inappropriate
   flag(cbToFlag) {
     const parsedUrl = new URL(window.location.href);
     const host = parsedUrl.hostname;

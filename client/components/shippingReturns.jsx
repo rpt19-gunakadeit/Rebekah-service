@@ -1,5 +1,7 @@
 // import React from 'react';
+import Details from './details.jsx';
 
+// stateful class component for displaying shipping and return info
 export default class ShippingReturns extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +11,7 @@ export default class ShippingReturns extends React.Component {
   }
 
   showInfo() {
-    this.setState({ extended: !this.state.extended })
+    this.setState({ extended: !this.state.extended });
   }
 
   render() {
@@ -27,20 +29,7 @@ export default class ShippingReturns extends React.Component {
 
     )
   }
-}
+};
 
-var Details = (props) => {
-  return (
-    <div id='short-reviews'>
-      Free standard shipping and free 60-day returns for Nike Members. <a>Learn more. Return policy exclusions apply.</a>
-      <ul>
-        <li>Standard / Arrives 2-4 Business Days</li>
-        <li>Two-Day / Arrives 2-3 Business Days</li>
-        <li>Next-Day / Arrives 1-2 Business Days</li>
-      </ul>
-      <a>Pick-up available at select Nike Stores.</a>
-    </div>
-  )
-}
 
 window.ShippingReturns = ShippingReturns;

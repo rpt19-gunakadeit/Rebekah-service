@@ -4,6 +4,7 @@ import Stars from './stars.jsx';
 import LongReview from './longReview.jsx';
 import FittingRange from './fittingRange.jsx';
 
+// stateful class component to show modal of all reviews
 class FullReviews extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +14,7 @@ class FullReviews extends React.Component {
     }
   }
 
+  // app displays 10 reviews w/ option to add more
   loadMore() {
     let newVisible = this.state.visible += 10;
     this.setState({
@@ -20,6 +22,7 @@ class FullReviews extends React.Component {
     })
   }
 
+  // resort by date, helpful, or stars
   reSortReviews(filter = 'date') {
     const parsedUrl = new URL(window.location.href);
     const host = parsedUrl.hostname;

@@ -2,6 +2,7 @@
 import moment from 'moment';
 import Stars from './stars.jsx';
 
+// stateful class component to show a 1 abbreviated review
 class ShortReview extends React.Component {
   constructor(props) {
     super(props);
@@ -11,9 +12,7 @@ class ShortReview extends React.Component {
   }
 
   changeView() {
-    this.setState({
-      extended: !this.state.extended
-    })
+    this.setState({ extended: !this.state.extended })
   }
 
   render() {
@@ -22,6 +21,7 @@ class ShortReview extends React.Component {
     var reviewBody, expand;
 
     if (review.body) {
+      // if review is < 100 characters, show the whole thing, else, shorten it w/ the option to expand
       if (review.body.length < 100) {
         reviewBody = <span>{review.body}</span>;
       } else if (this.state.extended) {
@@ -43,6 +43,7 @@ class ShortReview extends React.Component {
           <span className='review-user-date'>{review.user} - {date}</span>
         </div>
         {reviewBody}
+
         <div>
           {expand}
         </div>

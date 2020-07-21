@@ -2,6 +2,7 @@
 import Stars from './stars.jsx';
 import ShortReview from './shortReview.jsx';
 
+// functional componet to show 3 abbreviated reviews
 var SummaryReviews = (props) => {
 
   return (

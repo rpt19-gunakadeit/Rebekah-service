@@ -1,5 +1,6 @@
 // import React from 'react';
 
+// functional component to display how the shoe fits
 var FittingRange = (props) => {
 
   return (

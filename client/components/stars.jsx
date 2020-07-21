@@ -1,5 +1,6 @@
 // import React from 'react';
 
+// functional component to show number of stars from a review or the average stars
 var Stars = (props) => {
 
   var rating = [];

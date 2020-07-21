@@ -1,3 +1,4 @@
+// defines the schema of the Reviews table
 module.exports = (db, type) => {
   return db.define('review', {
     product_id: {

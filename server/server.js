@@ -8,18 +8,21 @@ const app = express();
 app.use(cors());
 app.use(express.static('./public/dist'));
 
+// send all reviews by id # & filter (date, most helpful, stars high to low, or start low to high)
 app.get('/reviews/:id/:filter', (req, res) => {
   Reviews.getReviews(req.params.id, req.params.filter)
     .then((reviews) => res.status(200).send(reviews))
     .catch((error) => res.status(500).send('Error in getting reviews from DB', error))
 })
 
+// update a review with a upvote or downvote
 app.post('/updateVote/:reviewId/:numVotes/:vote', (req, res) => {
   Reviews.updateVote(req.params.reviewId, req.params.numVotes, req.params.vote)
     .then(() => res.status(200).send('OK'))
     .catch((error) => res.status(500).send(`Error in updating ${req.params.vote}-vote`))
 })
 
+// flag a review for inappropriate content
 app.post('/flagReview/:reviewId/:flag', (req, res) => {
   Reviews.updateFlag(req.params.reviewId, req.params.flag)
     .then(() => res.status(200).send('OK'))
@@ -31,6 +34,10 @@ app.listen(port, () => console.log(`Reviews service is listening on port ${port}
 
 
 /*
+// API
+
+// GET example data:
+
 localhost:5000/reviews/19 produces:
 
 { reviews:

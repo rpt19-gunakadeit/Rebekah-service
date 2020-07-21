@@ -2,7 +2,7 @@ const faker = require('faker');
 const loremIpsum = require("lorem-ipsum").loremIpsum;
 const db = require('./database.js')
 
-
+// make title for review
 var generateTitle = () => {
   return loremIpsum({
     count: Math.floor(Math.random() * 5) + 1,
@@ -11,6 +11,7 @@ var generateTitle = () => {
   })
 }
 
+// make body for review
 var generateBody = () => {
   return loremIpsum({
     count: Math.floor(Math.random() * 2) + 1, // Number of "words", "sentences", or "paragraphs"
@@ -62,6 +63,8 @@ for (let i = 1; i <= 100; i++) {
       reviewBody = generateBody();
     }
 
+    // make purchaser a "Verified Purchase" every 3rd purchaser
+    // except where purchaser / 3 & 5 = 0- like 15
     if (x % 5 === 0) {
       purchaser = false;
     } else if (x % 3 === 0) {
@@ -70,6 +73,7 @@ for (let i = 1; i <= 100; i++) {
       purchaser = null;
     }
 
+    // add review votes every 4th review
     if (x % 4 === 0) {
       upvotes = Math.floor(Math.random() * 20);
       downvotes = Math.floor(Math.random() * 20);

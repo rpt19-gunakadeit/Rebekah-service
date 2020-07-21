@@ -1,6 +1,7 @@
 const tables = require('../database.js');
 
-//'stars' for high to low, 'date' for newest, 'upvotes' for most helpful, 'starsLow' for low to high
+// GET all reviews by product ID #
+// filters: 'stars' for high to low, 'date' for newest, 'upvotes' for most helpful, 'starsLow' for low to high
 var getReviews = (productId, filter = 'date') => {
   var direction = 'DESC'
   if (filter === 'starsLow') {
@@ -11,32 +12,26 @@ var getReviews = (productId, filter = 'date') => {
   return new Promise((resolve, reject) => {
     tables.Review.findAll({
       where: { product_id: productId },
+      // grab username from Users table
       include: [ { model: tables.User } ],
       order: [[filter, direction]]
     })
       .then((data) => {
         var result = {};
+        // clean up the data into array of objects. 1 object/review instead of nested
         result.reviews = data.map((review) => {
           review.dataValues.user = review.dataValues.user.dataValues.username
           return review.dataValues
         })
+        // calculate average stars 1 time here instead of multiple times on the client side
         result.avgStars = result.reviews.reduce((acc, c) => {return acc + c.stars}, 0) / result.reviews.length;
         resolve(result)
-
       })
-        .then((data) => {
-          var result = {};
-          result.reviews = data.map((review) => {
-            review.dataValues.user = review.dataValues.user.dataValues.username
-            return review.dataValues
-          })
-          result.avgStars = result.reviews.reduce((acc, c) => {return acc + c.stars}, 0) / result.reviews.length;
-          resolve(result)
-        })
-        .catch((error) => reject(error))
+      .catch((error) => reject(error))
   })
 }
 
+// upvote or downvote a review
 var updateVote = (reviewId, numVotes, vote) => {
   return new Promise((resolve, reject) => {
     tables.Review.findOne({ where: {id: reviewId}})
@@ -55,6 +50,7 @@ var updateVote = (reviewId, numVotes, vote) => {
   })
 }
 
+// flag a review for inappropriate content
 var updateFlag = (reviewId, flag) => {
   return new Promise((resolve, reject) => {
     tables.Review.findOne({ where: {id: reviewId}})

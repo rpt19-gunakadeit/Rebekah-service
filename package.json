@@ -39,7 +39,7 @@
     "jest-enzyme": "^7.1.2",
     "jquery": "^3.4.1",
     "lorem-ipsum": "^2.0.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "mysql2": "^2.1.0",
     "nodemon": "^2.0.2",
     "puppeteer": "^2.1.1",
